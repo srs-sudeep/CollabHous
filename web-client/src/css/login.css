@@ -1,0 +1,28 @@
+.react-tabs__tab-list {
+    width: 60%;
+    margin: 0 auto 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0px;
+  }
+  .react-tabs__tab {
+    width: 50%;
+    /* padding-bottom: 10px; */
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.7s;
+    font-size: 22px;
+    color:rgb(124, 124, 124);
+}
+.react-tabs__tab--selected {
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+   
+  }
+  .react-tabs__tab:hover {
+    color:black;
+    /* font-weight: 600; */
+  }
