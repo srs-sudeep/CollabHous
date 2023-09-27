@@ -26,53 +26,14 @@ import "../css/login.css";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 
-function CircularButton(props) {
-  return (
-    <Button
-      variant="contained"
-      sx={{
-        width: "70px",
-        height: "70px",
-        border: "2px solid black",
-        borderRadius: "50%",
-        backgroundColor: "white",
-        color: "black",
-        fontSize: "12px",
-        margin: "15px",
-        // fontWeight: "bold",
-        // padding:'10px',
-        mr: 2,
-        mt: 0,
-        mb: "7px",
-        backgroundImage:
-          "url(./person.png)" /* Replace 'your-image-url.jpg' with your image URL */,
-        backgroundSize: "cover" /* Adjust background size as needed */,
-        backgroundPosition: "center",
-        "&:hover": {
-          backgroundColor: "#e7e7e7", // Customize the hover effect color
-        },
-        ...(props.selected && {
-          // backgroundColor: "#1976d2",
-          filter: "invert(100%)", // Customize the selected button color
-        }),
-      }}
-      {...props}
-    />
-  );
-}
-
-
-
-
-
 export default function Login() {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const defaultTheme = createTheme();
   const [selectedTab, setSelectedTab] = useState(0); // 0 for Signup, 1 for Login
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const handleTabChange = (newTabIndex) => {
     setSelectedTab(newTabIndex);
   };
@@ -98,56 +59,16 @@ export default function Login() {
       console.log(response.data.msg);
       // console.log(email);
       // window.location.href = "dashboard";
-      navigate("/dashboard", {replace:true});
+      navigate("/dashboard", { replace: true });
       // history.push("dashboard"); // Redirect to the dashboard page
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleSubmitSignUp = async (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    try {
-      const email = data.get("email");
-      const password = data.get("password");
-      const name = data.get("name");
-      const mobile = data.get("mobile");
-      const customer = userType;
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
-        { name, email, mobile, password, customer }
-      );
-      console.log(response.data);
-      alert("Registered Successfully");
-      setSelectedTab(1); // Set the selected tab to the login tab
-    } catch (error) {
-      console.error(error);
-    }
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-      name: data.get("name"),
-      mobile: data.get("mobile"),
-      customer: userType,
-    });
-  };
-  //react useState hook to save the current open/close state of the drawer, normally variables dissapear afte the function was executed
-
-  //function that is being called every time the drawer should open or close, the keys tab and shift are excluded so the user can focus between the elements with the keys
-  
-
   return (
     <div>
-     
       <ThemeProvider theme={defaultTheme}>
-        {/* <div className='Navbar'>
-        <div className='left-nav'>
-        
-        </div>
-        <div className='mid-nav'></div>
-        <div className='right-nav'></div>
-      </div> */}
         <Grid container component="main" sx={{ height: "100vh" }}>
           <CssBaseline />
           <Grid
@@ -157,7 +78,7 @@ export default function Login() {
             md={6}
             sx={{
               backgroundImage:
-                "url(https://cdn.ddecor.com/media/catalog/product/G/a/Gallery_2018_20Classic_20Metallics_20II_144555_7.jpg)",
+                "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIm-vmAbsiwbb-MjgFDsqdsdAlRkBS-NHVGxIOYC1XGmR92Equ5vcLc6PXHUFX7R5YgLc&usqp=CAU)",
               backgroundRepeat: "no-repeat",
               backgroundColor: (t) =>
                 t.palette.mode === "light"
@@ -165,6 +86,8 @@ export default function Login() {
                   : t.palette.grey[900],
               backgroundSize: "cover",
               backgroundPosition: "center",
+              backgroundColor: "#13157c",
+
             }}
           />
           <Grid
@@ -176,6 +99,7 @@ export default function Login() {
             elevation={6}
             square
             padding={"0.5rem 1.5rem"}
+            backgroundColor={"#c0cdf7"}
           >
             <Box
               sx={{
@@ -195,16 +119,20 @@ export default function Login() {
                 onSelect={handleTabChange}
               >
                 <TabList style={{ display: "flex", justifyContent: "center" }}>
-                  <Tab>Login</Tab>
-                  {/* <div
+                  <div
                     style={{
-                      height: "30px",
-                      border: "1.4px solid rgb(130, 130, 130)",
+                      // marginRight: "17px",
+                      position: "relative",
+                      top:'40px',
+                      fontSize: "45px",
+                      fontWeight: "bold",
+                      fontFamily: "Times New Roman",
                     }}
-                  ></div>
-                  <Tab>Login</Tab>*/}
-                  </TabList> 
-                
+                  >
+                    Login
+                  </div>
+                </TabList>
+
                 <TabPanel>
                   {selectedTab === 0 && (
                     <Box
@@ -223,8 +151,15 @@ export default function Login() {
                         name="email"
                         autoComplete="email"
                         autoFocus
-                        onChange={(e)=>{
+                        onChange={(e) => {
                           setEmail(e.target.value);
+                        }}
+                        style={{
+                          // height: "50px",
+                          boxSizing: "border-box",
+                          borderRadius: "14px",
+                          backgroundColor: "white",
+                          border: "5px solid #c0cdf7",
                         }}
                       />
                       <TextField
@@ -236,8 +171,16 @@ export default function Login() {
                         type="password"
                         id="password"
                         autoComplete="current-password"
-                        onChange={(e)=>{
+                        onChange={(e) => {
                           setPassword(e.target.value);
+                        }}
+                        style={{
+                          // height: "50px",
+                          boxSizing: "border-box",
+                          borderRadius: "14px",
+                          backgroundColor: "white",
+                          color: "#c0cdf7",
+                          border: "5px solid #c0cdf7",
                         }}
                       />
                       <FormControlLabel
@@ -248,13 +191,13 @@ export default function Login() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        sx={{ mt: 3, mb: 2 }}
+                        sx={{ mt: 3, mb: 3, backgroundColor:'#13157c', borderRadius:'10px',}}
                       >
                         Login
                       </Button>
                       <Grid container>
                         <Grid item xs>
-                          <Link href="#" variant="body2">
+                          <Link href="#" variant="body2" style={{color:'#13157c'}}>
                             Forgot password?
                           </Link>
                         </Grid>

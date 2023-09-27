@@ -12,7 +12,10 @@ import AddPodcast from "./components/AddPodcast";
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element ={<Login />} />
+      </Routes>
       <Routes>
         <Route path="/login" element ={<Login />} />
       </Routes>

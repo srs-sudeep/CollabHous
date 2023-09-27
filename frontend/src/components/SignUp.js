@@ -31,11 +31,11 @@ function CircularButton(props) {
     <Button
       variant="contained"
       sx={{
-        width: "70px",
-        height: "70px",
-        border: "2px solid black",
+        width: "64px",
+        height: "64px",
+        border: "1px solid black",
         borderRadius: "50%",
-        backgroundColor: "white",
+        backgroundColor: "#c0cdf7",
         color: "black",
         fontSize: "12px",
         margin: "15px",
@@ -49,11 +49,11 @@ function CircularButton(props) {
         backgroundSize: "cover" /* Adjust background size as needed */,
         backgroundPosition: "center",
         "&:hover": {
-          backgroundColor: "#e7e7e7", // Customize the hover effect color
+          backgroundColor: "#c0cdf7", // Customize the hover effect color
         },
         ...(props.selected && {
-          // backgroundColor: "#1976d2",
           filter: "invert(100%)", // Customize the selected button color
+          backgroundColor: "#d4d241",
         }),
       }}
       {...props}
@@ -61,18 +61,14 @@ function CircularButton(props) {
   );
 }
 
-
-
-
-
-export default function Login() {
+export default function Signup() {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const defaultTheme = createTheme();
   const [selectedTab, setSelectedTab] = useState(0); // 0 for Signup, 1 for Login
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const handleTabChange = (newTabIndex) => {
     setSelectedTab(newTabIndex);
   };
@@ -82,27 +78,6 @@ export default function Login() {
 
   const handleUserTypeChange = (newUserType) => {
     setUserType(newUserType);
-  };
-
-  const handleSubmitLogin = async (event) => {
-    event.preventDefault();
-    // const data = new FormData(event.currentTarget);
-    try {
-      // const email = data.get("email");
-      // const password = data.get("password");
-
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        { email, password }
-      );
-      console.log(response.data.msg);
-      // console.log(email);
-      // window.location.href = "dashboard";
-      navigate("/dashboard", {replace:true});
-      // history.push("dashboard"); // Redirect to the dashboard page
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   const handleSubmitSignUp = async (event) => {
@@ -121,7 +96,7 @@ export default function Login() {
       console.log(response.data);
       alert("Registered Successfully");
       // setSelectedTab(1); // Set the selected tab to the login tab
-      navigate("/login", {replace:true});
+      navigate("/login", { replace: true });
     } catch (error) {
       console.error(error);
     }
@@ -136,20 +111,15 @@ export default function Login() {
   //react useState hook to save the current open/close state of the drawer, normally variables dissapear afte the function was executed
 
   //function that is being called every time the drawer should open or close, the keys tab and shift are excluded so the user can focus between the elements with the keys
-  
 
   return (
     <div>
-     
       <ThemeProvider theme={defaultTheme}>
-        {/* <div className='Navbar'>
-        <div className='left-nav'>
-        
-        </div>
-        <div className='mid-nav'></div>
-        <div className='right-nav'></div>
-      </div> */}
-        <Grid container component="main" sx={{ height: "100vh" }}>
+        <Grid
+          container
+          component="main"
+          sx={{ height: "100vh", backgroundColor: "#c0cdf7" }}
+        >
           <CssBaseline />
           <Grid
             item
@@ -158,7 +128,7 @@ export default function Login() {
             md={6}
             sx={{
               backgroundImage:
-                "url(https://cdn.ddecor.com/media/catalog/product/G/a/Gallery_2018_20Classic_20Metallics_20II_144555_7.jpg)",
+                "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIm-vmAbsiwbb-MjgFDsqdsdAlRkBS-NHVGxIOYC1XGmR92Equ5vcLc6PXHUFX7R5YgLc&usqp=CAU)",
               backgroundRepeat: "no-repeat",
               backgroundColor: (t) =>
                 t.palette.mode === "light"
@@ -166,6 +136,7 @@ export default function Login() {
                   : t.palette.grey[900],
               backgroundSize: "cover",
               backgroundPosition: "center",
+              backgroundColor: "#13157c",
             }}
           />
           <Grid
@@ -177,6 +148,7 @@ export default function Login() {
             elevation={6}
             square
             padding={"0.5rem 1.5rem"}
+            sx={{ backgroundColor: "#c0cdf7" }}
           >
             <Box
               sx={{
@@ -195,39 +167,51 @@ export default function Login() {
                 selectedIndex={selectedTab}
                 onSelect={handleTabChange}
               >
-                <TabList style={{ display: "flex", justifyContent: "center" }}>
-                  <Tab>Signup</Tab>
-                  {/* <div
-                    style={{
-                      height: "30px",
-                      border: "1.4px solid rgb(130, 130, 130)",
-                    }}
-                  ></div>
-                  <Tab>Login</Tab>*/}
-                  </TabList> 
                 <TabPanel>
-                  
-                    <Box
-                      component="form"
-                      noValidate
-                      onSubmit={handleSubmitSignUp}
-                      method="post"
-                      sx={{ mt: 1, display: "flex", flexDirection: "column" }}
+                  <Box
+                    component="form"
+                    noValidate
+                    onSubmit={handleSubmitSignUp}
+                    method="post"
+                    sx={{ mt: 1, display: "flex", flexDirection: "column" }}
+                  >
+                    <FormControl
+                      component="fieldset"
+                      sx={{
+                        mt: 0,
+                        mb: 2,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
                     >
-                      <FormControl
-                        component="fieldset"
-                        sx={{
-                          mt: 0,
-                          mb: 2,
+                      <div
+                        style={{
+                          marginTop: "0px",
                           display: "flex",
-                          alignItems: "center",
+                          justifyContent: "space-between",
+                          alignItems: "baseline",
+                          width: "100%",
                         }}
                       >
+                        <Typography
+                          sx={{
+                            marginRight: "0px",
+                            position: "relative",
+                            /* top: -10px; */
+                            fontSize: "45px",
+                            fontWeight: "900",
+                            color: "#153091",
+                            fontFamily: "Times New Roman",
+                          }}
+                        >
+                          Signup
+                        </Typography>
                         <div
                           style={{
                             marginTop: "0px",
                             display: "flex",
                             justifyContent: "space-between",
+                            alignItems: "baseline",
                             gap: "2px",
                           }}
                         >
@@ -246,7 +230,7 @@ export default function Login() {
                               <img
                                 src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
                                 alt=""
-                                width="40px"
+                                width="30px"
                               />
                             </CircularButton>
                             <span
@@ -275,7 +259,7 @@ export default function Login() {
                               <img
                                 src="https://icons.veryicon.com/png/o/miscellaneous/icon_1/horn-19.png"
                                 alt=""
-                                width="45px"
+                                width="30px"
                               />
                             </CircularButton>
                             <span
@@ -305,7 +289,7 @@ export default function Login() {
                               <img
                                 src="https://static.thenounproject.com/png/999966-200.png"
                                 alt=""
-                                width="48px"
+                                width="30px"
                               />
                             </CircularButton>
                             <span
@@ -313,98 +297,113 @@ export default function Login() {
                                 fontSize: "12px",
                                 fontWeight: "500",
                                 fontWeight: "600",
+                                textAlign: "center",
                               }}
                             >
-                              Fashion House
+                              FashionHouse
                             </span>
                           </div>
                         </div>
-                      </FormControl>
-                      <TextField
-                        margin="none"
-                        required
-                        fullWidth
-                        id="name"
-                        label="Name"
-                        name="name"
-                        autoComplete="name"
-                        autoFocus
-                        InputProps={{
-                          style: {
-                            height: "40px",
-                            boxSizing: "border-box",
-                          },
-                        }}
-                        InputLabelProps={{
-                          style: {
-                            lineHeight: "15px",
-                          },
-                        }}
-                      />
-                      <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
-                        autoFocus
-                        InputProps={{
-                          style: {
-                            height: "40px",
-                            boxSizing: "border-box",
-                          },
-                        }}
-                        InputLabelProps={{
-                          style: {
-                            lineHeight: "15px",
-                          },
-                        }}
-                      />
-                      <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="mobile"
-                        label="Mobile"
-                        name="mobile"
-                        autoComplete="mobile"
-                        autoFocus
-                        InputProps={{
-                          style: {
-                            height: "40px",
-                            boxSizing: "border-box",
-                          },
-                        }}
-                        InputLabelProps={{
-                          style: {
-                            lineHeight: "15px",
-                          },
-                        }}
-                      />
-                      <TextField
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Password"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                        InputProps={{
-                          style: {
-                            height: "40px",
-                            boxSizing: "border-box",
-                          },
-                        }}
-                        InputLabelProps={{
-                          style: {
-                            lineHeight: "15px",
-                          },
-                        }}
-                      />
-                      {/* <TextField
+                      </div>
+                    </FormControl>
+                    <div style={{ height: "40px" }}></div>
+                    <TextField
+                      margin="none"
+                      required
+                      fullWidth
+                      id="name"
+                      label="Name"
+                      name="name"
+                      autoComplete="name"
+                      autoFocus
+                      InputProps={{
+                        style: {
+                          height: "50px",
+                          boxSizing: "border-box",
+                          borderRadius: "14px",
+                          backgroundColor: "white",
+                          border: "2px solid #c0cdf7",
+                        },
+                      }}
+                      InputLabelProps={{
+                        style: {
+                          lineHeight: "20px",
+                        },
+                      }}
+                    />
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      autoComplete="email"
+                      autoFocus
+                      InputProps={{
+                        style: {
+                          height: "50px",
+                          boxSizing: "border-box",
+                          borderRadius: "14px",
+                          backgroundColor: "white",
+                          border: "2px solid #c0cdf7",
+                        },
+                      }}
+                      InputLabelProps={{
+                        style: {
+                          lineHeight: "20px",
+                        },
+                      }}
+                    />
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      id="mobile"
+                      label="Mobile"
+                      name="mobile"
+                      autoComplete="mobile"
+                      autoFocus
+                      InputProps={{
+                        style: {
+                          height: "50px",
+                          boxSizing: "border-box",
+                          borderRadius: "14px",
+                          backgroundColor: "white",
+                          border: "2px solid #c0cdf7",
+                        },
+                      }}
+                      InputLabelProps={{
+                        style: {
+                          lineHeight: "20px",
+                        },
+                      }}
+                    />
+                    <TextField
+                      margin="normal"
+                      required
+                      fullWidth
+                      name="password"
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                      InputProps={{
+                        style: {
+                          height: "50px",
+                          boxSizing: "border-box",
+                          borderRadius: "14px",
+                          backgroundColor: "white",
+                          border: "2px solid #c0cdf7",
+                        },
+                      }}
+                      InputLabelProps={{
+                        style: {
+                          lineHeight: "20px",
+                        },
+                      }}
+                    />
+                    {/* <TextField
                         margin="normal"
                         required
                         fullWidth
@@ -425,43 +424,48 @@ export default function Login() {
                           },
                         }}
                       /> */}
-                      <FormControlLabel
-                        control={<Checkbox value="tnc" color="primary" />}
-                        label="I have read terms and conditions"
-                      />
-                      <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        sx={{ mt: 3, mb: 0 }}
-                      >
-                        Sign Up
-                      </Button>
+                    <FormControlLabel
+                      control={<Checkbox value="tnc" color="primary" />}
+                      label="I have read terms and conditions"
+                    />
+                    <Button
+                      type="submit"
+                      fullWidth
+                      variant="contained"
+                      sx={{
+                        mt: 3,
+                        mb: 0,
+                        backgroundColor: "#13157c",
+                        borderRadius: "10px",
+                      }}
+                    >
+                      Sign Up
+                    </Button>
 
-                      <hr />
-                      <Typography
-                        variant="subtitle2"
-                        sx={{
-                          textAlign: "center",
-                          backgroundColor: "white",
-                          zIndex: 1,
-                          fontWeight: "600",
-                        }}
-                      >
-                        OR
-                      </Typography>
-                      <div className="social-buttons">
-                        <button className="google">
-                          <span className="icon google-icon"></span>
-                        </button>
-                        <button className="facebook">
-                          <span className="icon facebook-icon"></span>
-                        </button>
-                        <button className="twitter">
-                          <span className="icon twitter-icon"></span>
-                        </button>
-                      </div>
-                    </Box>
+                    <hr />
+                    <Typography
+                      variant="subtitle2"
+                      sx={{
+                        textAlign: "center",
+                        backgroundColor: "#c0cdf7",
+                        zIndex: 1,
+                        fontWeight: "600",
+                      }}
+                    >
+                      OR
+                    </Typography>
+                    <div className="social-buttons">
+                      <button className="google">
+                        <span className="icon google-icon"></span>
+                      </button>
+                      <button className="facebook">
+                        <span className="icon facebook-icon"></span>
+                      </button>
+                      <button className="twitter">
+                        <span className="icon twitter-icon"></span>
+                      </button>
+                    </div>
+                  </Box>
                 </TabPanel>
                 {/* <TabPanel>   
                     <Box

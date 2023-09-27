@@ -4,9 +4,9 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 10px;
     width:60%;
     margin: 0px auto;
+    margin-top: 20px;
   }
   
   button {
@@ -14,7 +14,7 @@
     flex-direction: column;
     align-items: center;
     background-color: transparent;
-    border: 1px solid #ffffff;
+    border: 1px solid #ffffffb6;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
@@ -22,7 +22,7 @@
   }
   
   button:hover {
-    background-color: #f0f0f0;
+    background-color: #ededed75;
   }
   
   .icon {
