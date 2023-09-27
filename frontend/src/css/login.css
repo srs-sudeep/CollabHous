@@ -1,3 +1,22 @@
+.Navbar{
+  height:20vh;
+  position:static;
+  background-color: rgba(255, 255, 255, 0.433);
+  height:50px;
+}
+.Navbar>.left-nav{
+  width:10%;
+}
+.Navbar>.mid-nav{
+  width:80%;
+  display:flex;
+  justify-content: 'center';
+  align-items: 'center';
+}
+.Navbar>.right-nav{
+  width:10%;
+}
+
 .react-tabs__tab-list {
     width: 60%;
     margin: 0 auto 0rem;
