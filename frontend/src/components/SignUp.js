@@ -198,7 +198,7 @@ export default function Signup() {
                             marginRight: "0px",
                             position: "relative",
                             /* top: -10px; */
-                            fontSize: "45px",
+                            fontSize: "55px",
                             fontWeight: "900",
                             color: "#153091",
                             fontFamily: "Times New Roman",

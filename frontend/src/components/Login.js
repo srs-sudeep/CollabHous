@@ -126,6 +126,7 @@ export default function Login() {
                       top:'40px',
                       fontSize: "45px",
                       fontWeight: "bold",
+                      color:'#13157c',
                       fontFamily: "Times New Roman",
                     }}
                   >
