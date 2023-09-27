@@ -133,8 +133,8 @@ const Dashboard = () => {
     <Fullpage goto={() => console.log("Hola")}>
       <FullPageSections>
         <FullpageSection style={{
-          background: 'url(https://img.freepik.com/free-photo/happy-lady-stylish-skirt-boater-posing-pink-wall_197531-23653.jpg?w=1380&t=st=1695808229~exp=1695808829~hmac=d097346ce693a252ab803cc3e8b5669a20caa51faca2b2573e3edc9dec6cea74)',
-          backgroundRepeate: 'no-repeate',
+          background: 'url(https://img.freepik.com/free-photo/full-shot-cool-people-wearing-chain-necklace_23-2149409723.jpg?w=1380&t=st=1695822259~exp=1695822859~hmac=6f6fd69f0fd22255b41656a9a9ac486ce04467e02a92387fb0d82739fca54009)',
+          backgroundRepeate: 'no-repeat',
           backgroundPosition: 'center',
           height: '100vh',
           padding: '1em',
@@ -143,11 +143,12 @@ const Dashboard = () => {
           alignItems: 'center',
           position: 'relative'
         }}>
-
+          <div style={{display : "flex", alignItems : "end", height : "100vh"}}>
           <Counter displayValue={timeDisplay.days} label={"Days"} />
           <Counter displayValue={timeDisplay.hours} label={"Hours"} />
           <Counter displayValue={timeDisplay.minutes} label={"Minutes"} />
           <Counter displayValue={timeDisplay.seconds} label={"Seconds"} />
+          </div>
           {/* <div style={{
               height: '450px',
               width: '1000px',
@@ -163,7 +164,7 @@ const Dashboard = () => {
         </FullpageSection>
         <FullpageSection style={{
           background: 'url(https://img.freepik.com/free-photo/portrait-smiling-beautiful-girl-her-handsome-boyfriend-laughing-happy-cheerful-couple-sunglasses_158538-5002.jpg?w=1060&t=st=1695808639~exp=1695809239~hmac=1feda6476de7fa8b8cc0d43dcf7b62abfb3cf141e020786bbdce0a8b1f3fa907)',
-          backgroundRepeate: 'no-repeate',
+          backgroundRepeate: 'no-repeat',
           backgroundPosition: 'center',
           height: '100vh',
           padding: '1em',
@@ -188,7 +189,7 @@ const Dashboard = () => {
         <FullpageSection
           style={{
             background: 'url(https://img.freepik.com/free-photo/three-young-beautiful-smiling-girls-trendy-summer-casual-jeans-clothes-sexy-carefree-women-posing-positive-models-sunglasses_158538-4730.jpg?t=st=1695808218~exp=1695808818~hmac=55929836e24fad216aea27739b9c506112451d90cef2786e7561cd54b4f88779)',
-            backgroundRepeate: 'no-repeats',
+            backgroundRepeate: 'no-repeat',
             // backgroundRepeate : 'no-repeat'
             backgroundPosition: 'center',
             height: '100vh',
