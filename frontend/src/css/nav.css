@@ -1,0 +1,21 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+.navLeft{
+    width:0%;
+    display: flex;
+    
+}
+.navMid{
+    width:250px;
+    display: flex;
+    justify-content: space-between;
+    gap:10px;
+    /* padding:0px 20%; */
+}
+.navRight{
+    width:0%;
+    display: flex;
+    
+}

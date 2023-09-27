@@ -1,0 +1,46 @@
+/* SocialButtons.css */
+
+.social-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width:60%;
+    margin: 0px auto;
+    margin-top: 20px;
+  }
+  
+  button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid #ffffffb6;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ededed75;
+  }
+  
+  .icon {
+    width: 32px;
+    height: 32px;
+    /* margin-bottom: 5px; */
+    background-size: cover;
+  }
+  
+  .google-icon {
+    background-image: url('./google.png'); /* Replace with your Google icon URL */
+  }
+  
+  .facebook-icon {
+    background-image: url('./facebook.png'); /* Replace with your Facebook icon URL */
+  }
+  
+  .twitter-icon {
+    background-image: url('./twitter.png'); /* Replace with your Twitter icon URL */
+  }
+  
